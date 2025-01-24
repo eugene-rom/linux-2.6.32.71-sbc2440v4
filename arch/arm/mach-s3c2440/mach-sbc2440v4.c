@@ -482,15 +482,6 @@ static struct s3c24xx_mci_pdata sbc2440v4_mmc_cfg = {
    .ocr_avail     = MMC_VDD_32_33|MMC_VDD_33_34,
 };
 
-static struct s3c2410_hcd_info sbc2440v4_usb_info = {
-	.port[0]	= {
-		.flags	= S3C_HCDFLG_USED
-	},
-	.port[1]	= {
-		.flags	= S3C_HCDFLG_USED
-	},
-};
-
 /* devices we initialise */
 
 static struct platform_device *sbc2440v4_devices[] __initdata = {
@@ -524,7 +515,6 @@ static void __init sbc2440v4_machine_init(void)
 	s3c2410_gpio_cfgpin(S3C2410_GPC(0), S3C2410_GPC0_LEND);
 
 	s3c_device_nand.dev.platform_data = &friendly_arm_nand_info;
-	s3c_device_usb.dev.platform_data = &sbc2440v4_usb_info;
 	s3c_device_sdi.dev.platform_data = &sbc2440v4_mmc_cfg;
 	platform_add_devices(sbc2440v4_devices, ARRAY_SIZE(sbc2440v4_devices));
 	s3c_pm_init();
