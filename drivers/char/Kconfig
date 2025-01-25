@@ -97,6 +97,14 @@ config DEVKMEM
 	  kind of kernel debugging operations.
 	  When in doubt, say "N".
 
+config SBC2440V4_ADC
+	bool "ADC driver for SBC2440V4 development boards"
+	depends on MACH_SBC2440V4
+	default y if MACH_SBC2440V4
+	help
+	  this is ADC driver for SBC2440V4 development boards
+	  Notes: the touch-screen-driver required this option
+
 config BFIN_JTAG_COMM
 	tristate "Blackfin JTAG Communication"
 	depends on BLACKFIN
