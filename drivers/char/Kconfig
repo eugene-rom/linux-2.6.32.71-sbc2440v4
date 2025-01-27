@@ -97,6 +97,14 @@ config DEVKMEM
 	  kind of kernel debugging operations.
 	  When in doubt, say "N".
 
+config LEDS_SBC2440V4
+	tristate "LED Support for SBC2440V4 GPIO LEDs"
+	depends on MACH_SBC2440V4
+	default y if MACH_SBC2440V4
+	help
+	  This option enables support for LEDs connected to GPIO lines
+	  on SBC2440V4 boards.
+
 config SBC2440V4_ADC
 	bool "ADC driver for SBC2440V4 development boards"
 	depends on MACH_SBC2440V4
